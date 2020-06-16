@@ -202,10 +202,8 @@ class Shape {
       (this.height = height),
       (this.length = length),
       (this.width = width),
-      (this.radius = radius),
-      (this.calcArea = function () {}),
-      (this.calcPerimeter = function () {});
-    this.calcCircumference = function () {};
+      (this.radius = radius);
+    
   }
 }
 
