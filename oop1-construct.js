@@ -213,9 +213,7 @@ const triangle = new Shape("triangle", 7, 4, 2, 6.71, null, null, null);
 
 (triangle.calcArea = function () {
   console.log(
-    `${this.name}'s area is calculated to be : ${
-      triangle.height * this.halfBase
-    }`
+    `${this.name}'s area is calculated to be : ${6.71 * this.halfBase}`
   );
 }),
   (triangle.calcPerimeter = function () {
@@ -226,7 +224,7 @@ const triangle = new Shape("triangle", 7, 4, 2, 6.71, null, null, null);
     );
   });
 
-triangle.base = triangle.base; //base is the 1st side in the triangle.sides array, which is 4, but for calc of height I need half of that.
+triangle.base = triangle.base; //base is the 1st side in the triangle.sides array, which is 4.
 
 //bonus calc height - the square root of A2 * B2 = C2 where A2 is base, B2 is height and C2 is hypotenuse)
 
