@@ -9,7 +9,7 @@
 
     //your code here...*/
     //doing this with weakmap as well as with # because # doesn't seem to work due to it being so new.
-//Books
+//first
 const _author = new WeakMap();
 const _publisher = new WeakMap();
 
@@ -31,7 +31,7 @@ const b = new Books("King", "Penguin");
 console.log(b.author);
 console.log(b.publisher);
 
-//Author
+//second
 const _name = new WeakMap();
 const _books = new WeakMap();
 
@@ -487,9 +487,149 @@ console.log(r.getUser);
     console.log(`${ezw.name} is located in ${ezw.location}.`);
     ezw.shufflePaper();
     ezw.fileWarranties();
+  
+    //Employee class and instances of employees
+
+    class Employee {
+      constructor(name, company, title, salary, item1, item2) {
+        (this.name = name),
+          (this.company = company),
+          (this.title = title),
+          (this.salary = salary),
+          (this.item1 = item1),
+          (this.item2 = item2);
+      }
+      aboutMe() {
+        console.log(
+          `My name is ${this.name} and I work at ${this.company}. My title is ${this.title} and my annual salary is ${this.salary}.`
+        );
+      }
+      myDuties() {
+        console.log(
+          `As ${this.title} my job is to ${this.item1} and ${this.item2}.`
+        );
+      }
+    }
     
-
-
+    const ceo = new Employee(
+      "Mary Higgens",
+      "Sears",
+      "CEO",
+      "$400,000",
+      "run the company",
+      "report to shareholders"
+    );
+    console.log(ceo);
+    ceo.aboutMe();
+    ceo.myDuties();
+    
+    const manager = new Employee(
+      "Joy Fendway",
+      "JC Penney",
+      "Manager",
+      "$200,000",
+      "oversee employees",
+      "hire new employees"
+    );
+    console.log(manager);
+    manager.aboutMe();
+    manager.myDuties();
+    
+    const secretary = new Employee(
+      "Cal French",
+      "Tommie Hilfiger",
+      "Secretary",
+      "$65,000",
+      "take care of paperwork",
+      "answer calls"
+    );
+    console.log(secretary);
+    secretary.aboutMe();
+    secretary.myDuties();
+    
+    const engineer1 = new Employee(
+      "John Joseph",
+      "L-3 Communications",
+      "Engineer1",
+      "$120,000",
+      "design new products",
+      "generate specifications"
+    );
+    console.log(engineer1);
+    engineer1.aboutMe();
+    engineer1.myDuties();
+    
+    const engineer2 = new Employee(
+      "Calley Nolary",
+      "L-3 Communications",
+      "Engineer2",
+      "$110,000",
+      "generate blueprints",
+      "create bill of materials"
+    );
+    console.log(engineer2);
+    engineer2.aboutMe();
+    engineer2.myDuties();
+    
+    const financeCPA = new Employee(
+      "Jane Shumway",
+      "Consumers Electronics",
+      "Finance CPA",
+      "$175,000",
+      "track sales and expenses",
+      "do month end close"
+    );
+    console.log(financeCPA);
+    financeCPA.aboutMe();
+    financeCPA.myDuties();
+    
+    const janitor = new Employee(
+      "Hank Miller",
+      "Delphi",
+      "Janitor",
+      "$65,000",
+      "daily cleaning",
+      "taking out trash"
+    );
+    console.log(janitor);
+    janitor.aboutMe();
+    janitor.myDuties();
+    
+    const marketer = new Employee(
+      "Colleen Avery",
+      "Schwans Foods",
+      "Marketer",
+      "$92,000",
+      "creating clever ads",
+      "getting tv and radio spots"
+    );
+    console.log(marketer);
+    marketer.aboutMe();
+    marketer.myDuties();
+    
+    const hr = new Employee(
+      "Linda Barbara",
+      "Church of Christ",
+      "HR",
+      "$75,000",
+      "reviewing resumes",
+      "doing hiring interviews"
+    );
+    console.log(hr);
+    hr.aboutMe();
+    hr.myDuties();
+    
+    const lawyer = new Employee(
+      "Desiree Avery",
+      "Kautex",
+      "lawyer",
+      "$250,000",
+      "filing briefs",
+      "tracking company communications"
+    );
+    console.log(lawyer);
+    lawyer.aboutMe();
+    lawyer.myDuties();
 
 
 /****************************************************************************************************************************************************************************************   
@@ -504,10 +644,125 @@ Each Book instance should contain instances of the Authors, the Publishers, and 
 */
 
 //your code here...
-
-
-
-
-class Professional {
-    constructor(name, field);
+class Bookstore {
+  constructor(titles, types) {
+    (this.titles = titles), (this.types = types);
+  }
 }
+
+class Authors extends Bookstore {
+  constructor(titles, types, authors) {
+    super(titles, types);
+    this.authors = authors;
+  }
+}
+class Publishers extends Authors {
+  constructor(titles, types, authors, publishers) {
+    super(titles, types, authors);
+    this.publishers = publishers;
+  }
+}
+
+const thomasNelson1 = new Publishers(
+  "Hurricane Season",
+  "Fiction",
+  "Lauren K. Denten",
+  "Thomas Nelson"
+);
+console.log(thomasNelson1);
+
+const thomasNelson2 = new Publishers(
+  "Captivating",
+  "Non-Fiction",
+  "John Eldredge",
+  "Thomas Nelson"
+);
+console.log(thomasNelson2);
+
+const thomasNelson3 = new Publishers(
+  "Daniel",
+  "Non-Fiction",
+  "John MacArthur",
+  "Thomas Nelson"
+);
+console.log(thomasNelson3);
+
+const penguin1 = new Publishers(
+  "Pilgrim's Progress",
+  "Fiction",
+  "John Bunyon",
+  "Thomas Nelson"
+);
+console.log(penguin1);
+
+const penguin2 = new Publishers(
+  "The Bone Collector",
+  "Fiction",
+  "Jeffrey Deaver and David Macallum",
+  "Penguin"
+);
+console.log(penguin2);
+
+const penguin3 = new Publishers(
+  "The Handmaid's Tale",
+  "Fiction",
+  "Margaret Atwood and Claire Daines",
+  "Penguin Random House"
+);
+console.log(penguin3);
+
+class Reviews extends Publishers {
+  constructor(titles, types, authors, publishers, reviews) {
+    super(titles, types, authors, publishers);
+    this.reviews = reviews;
+  }
+}
+
+const book1 = new Reviews(
+  "Not the Perfect Book",
+  "Non-Fiction",
+  "JW Rucker",
+  "JW Rucker JR",
+  "Five Stars"
+);
+console.log(book1);
+const book2 = new Reviews(
+  "The Hideaway",
+  "Fiction",
+  "Lauren K. Denton",
+  "Thomas Nelson",
+  "four and a half stars"
+);
+console.log(book2);
+const book3 = new Reviews(
+  "The Woman I was Before",
+  "Fiction",
+  "Kerry Fisher",
+  "Bookoutoure",
+  "No reviews yet"
+);
+console.log(book3);
+const book4 = new Reviews(
+  "Send Down the Rain",
+  "Non-Fiction",
+  "Charles Martin",
+  "Thomas Nelson",
+  "No Reviews yet"
+);
+console.log(book4);
+const book5 = new Reviews(
+  "The Knowledge of the Holy",
+  "Non-Fiction",
+  "A.W. Tozer",
+  "Reading Essentials",
+  "Five Stars all the way"
+);
+console.log(book5);
+const book6 = new Reviews(
+  "The Life We Bury",
+  "Fiction",
+  "Allen Eskins",
+  "Tantor Audio",
+  "Five stars"
+);
+console.log(book6);
