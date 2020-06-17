@@ -195,9 +195,16 @@ console.log(r.getUser);
         }
         this.name = name;
       }
+      trackSubsidiaries(){
+        console.log(`Our job here at ${this.name} is to keep track of all our subsidiaries.`);
+      }
+      provideAssistance(){
+        console.log(`${this.name} provides assistance to its subsidiaries when necessary.`);
+      }
     }
-    //const t = new Textron("Textron"); - this produces the error message
+    //const t = new Textron("Textron"); - this produces the error message - can not create instances of this class
     console.log("Parent Company is " + Textron.name);
+  
     
     class Bell extends Textron {
       constructor(name, employees, buildings, cages) {
